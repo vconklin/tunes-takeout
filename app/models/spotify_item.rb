@@ -1,4 +1,4 @@
-require 'httparty'
+require 'rspotify'
 
 class SpotifyItem
   BASE_URL = "https://api.spotify.com/v1/"
@@ -13,7 +13,7 @@ class SpotifyItem
 
   ## write this once you know which type of music you need to pull in... wait, why do we even need this? doesn't rspotify do this parsing work for us?
   def self.find(id)
-    data = HTTParty.get(BASE_URL + "artists/#{id}").parsed_response
+    data = RSpotify::Artist.find(id)
 
     self.new(data)
   end
