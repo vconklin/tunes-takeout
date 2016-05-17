@@ -1,3 +1,11 @@
-<h2>Top 20 Suggestions</h2>
+<h2>Find A Suggestion</h2>
 
-<p>form goes here!</p>
+<% if params[:query] %>
+  <%= @suggestion.music_id %>
+<% end %>
+
+
+<%= form_tag(suggestions_path, method: :get) do %>
+  <%= text_field_tag :query %>
+  <%= submit_tag "Search" %>
+<% end %>
