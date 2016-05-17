@@ -9,9 +9,21 @@
 </head>
 <body>
 
-<h1>woohoo</h1>
+<header>
+  <h1>Tunes & Takeout</h1>
+</header>
 
-<%= yield %>
+<div class="greeting">
+  Hi Guest!
+  <%= image_tag "defaultspotifylogo.png" %>
+  <p>Log In</p>
+</div>
+
+<main>
+  <%= yield %>
+</main>
+
+<footer>&copy; 2016 Valerie Conklin</footer>
 
 </body>
 </html>

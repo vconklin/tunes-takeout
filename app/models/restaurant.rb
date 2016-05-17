@@ -12,10 +12,11 @@ class Restaurant
     @rating = data["rating"]
   end
 
-  def self.find(id)
-    data = HTTParty.get(BASE_URL + "business/#{id}").parsed_response
-
-    self.new(data)
-  end
+  ## work on this when you know how to use auth key stuff
+  # def self.find(id)
+  #   data = HTTParty.get(BASE_URL + "business/#{id}").parsed_response
+  #
+  #   self.new(data)
+  # end
 
 end
