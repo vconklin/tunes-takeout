@@ -27,10 +27,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty'
-gem 'pry-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -43,6 +42,10 @@ group :development, :test do
   gem 'byebug'
   gem 'better_errors'
   gem 'simplecov'
+  gem 'pry-rails'
+  gem 'minitest-vcr'
+  gem 'minitest-reporters'
+  gem 'webmock'
 end
 
 group :development do
