@@ -1,14 +1,17 @@
 <h2>Find A Suggestion</h2>
-
-<% if params[:query] %>
-  restaurant will go here
-  <%= @music.name %>
-  <%= @music.type %>
-  <%= @music.image %>
-<% end %>
-
-
 <%= form_tag(suggestions_path, method: :get) do %>
   <%= text_field_tag :query %>
   <%= submit_tag "Search" %>
+<% end %>
+
+<% if params[:query] %>
+  <div class="pairing">
+    <h2>You Should Try This Combo!</h2>
+    <h3>Restaurant</h3>
+    restaurant will go here
+    <h3>Music</h3>
+    <%= @music.name %>
+    <%= @music.type %>
+    <%= image_tag @music.image %>
+  </div>
 <% end %>

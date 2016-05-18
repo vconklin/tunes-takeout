@@ -1,3 +1,5 @@
+/*** GLOBAL ***/
+
 html {
   font-size: 16px;
 }
@@ -26,6 +28,17 @@ main {
 footer {
   text-align: center;
 }
+
+/*** INDEX ***/
+
+.pairing img {
+  height: 10rem;
+  width: 10rem;
+}
+
+
+
+
 
 
 /*
