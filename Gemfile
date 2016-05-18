@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'yelp', require: 'yelp'
 gem 'rspotify'
 
-gem 'omniauth-oauth2', '~> 1.3.1'
+gem 'omniauth-oauth2', '1.3.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -46,6 +46,7 @@ group :development, :test do
   gem 'minitest-vcr'
   gem 'minitest-reporters'
   gem 'webmock'
+  gem 'dotenv-rails'
 end
 
 group :development do
