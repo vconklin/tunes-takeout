@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    # redirect_to login_success_path
+    
   end
 
   def create

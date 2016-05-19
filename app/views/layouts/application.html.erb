@@ -15,7 +15,7 @@
 
 <div class="greeting">
   <% if session[:user_id] %>
-    Hi <%= @user.name %>!
+    Hi <%= current_user.name %>!
     userpic goes here
     <%= link_to "Log Out", logout_path, method: :delete %>
   <% else %>
