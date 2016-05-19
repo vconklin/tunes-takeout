@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :suggestions, only: [:index, :show]
 
+  get "/auth/:provider/callback" => "sessions#create"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
