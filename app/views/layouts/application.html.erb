@@ -14,10 +14,20 @@
 </header>
 
 <div class="greeting">
-  Hi Guest!
-  <%= image_tag "defaultspotifylogo.png" %>
-  <p>Log In</p>
+  <% if session[:user_id] %>
+    Hi <%= @user.name %>!
+    userpic goes here
+    <%= link_to "Log Out", logout_path %>
+  <% else %>
+    Hi Guest!
+    <%= image_tag "defaultspotifylogo.png" %>
+    <%= link_to "Log In", "/auth/spotify" %>
+  <% end %>
 </div>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %>
+<% end %>
 
 <main>
   <%= yield %>
