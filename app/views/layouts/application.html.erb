@@ -16,7 +16,11 @@
 <div class="greeting">
   <% if session[:user_id] %>
     Hi <%= current_user.name %>!
-    userpic goes here
+    <% if current_user.image.nil? %>
+      <%= image_tag "no_picture.png" %>
+    <% else %>
+      <%= image_tag current_user.image %>
+    <% end %>
     <%= link_to "Log Out", logout_path, method: :delete %>
   <% else %>
     Hi Guest!
