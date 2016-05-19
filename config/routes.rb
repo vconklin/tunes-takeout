@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :suggestions, only: [:index, :show]
 
-  get "/auth/:provider/callback" => "sessions#create"
+  get "/auth/:provider/callback" => "sessions#create", as: "login"
+
+  delete "/logout" => "sessions#destroy", as: "logout"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
