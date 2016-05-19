@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
 
+  def new
+    # redirect_to login_success_path
+  end
+
   def create
     auth_hash = request.env['omniauth.auth']
     if auth_hash["uid"]
@@ -7,11 +11,21 @@ class SessionsController < ApplicationController
       if @user
         session[:user_id] = @user.id
         redirect_to root_path
+        raise
       else
-        redirect_to root_path, notice: "Failed to save the user"
+        flash[:notice] = "Failed to save the user"
+        redirect_to root_path
       end
     else
-      redirect_to root_path, notice: "Failed to authenticate"
+      flash[:notice] = "Failed to authenticate"
+      redirect_to root_path
     end
   end
+
+  def destroy
+    session.delete(:user_id)
+    @user = nil
+    redirect_to root_path
+  end
+
 end
