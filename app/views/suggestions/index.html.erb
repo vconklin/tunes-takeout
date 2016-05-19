@@ -1,7 +1,10 @@
-<h2>Find A Suggestion</h2>
-<%= form_tag(suggestions_path, method: :get) do %>
-  <%= text_field_tag :query %>
-  <%= submit_tag "Search" %>
+
+<% if current_user %>  
+  <h2>Find A Suggestion</h2>
+  <%= form_tag(suggestions_path, method: :get) do %>
+    <%= text_field_tag :query %>
+    <%= submit_tag "Search" %>
+  <% end %>
 <% end %>
 
 <% if params[:query] %>
