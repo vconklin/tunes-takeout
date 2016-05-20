@@ -18,7 +18,7 @@ class TunesTakeoutWrapper
   def self.search(query)
     data = HTTParty.get(BASE_URL + "suggestions/search?query=#{query}&limit=1").parsed_response
 
-    self.new(data["suggestions"][0])
+    self.new(data["suggestions"].sample)
   end
 
   def self.top_favorites
