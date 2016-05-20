@@ -1,5 +1,5 @@
 
-<% if current_user %>  
+<% if current_user %>
   <h2>Find A Suggestion</h2>
   <%= form_tag(suggestions_path, method: :get) do %>
     <%= text_field_tag :query %>
@@ -8,5 +8,13 @@
 <% end %>
 
 <% if params[:query] %>
-  <%= render "suggestion" %>
+  <h2>You Should Try This Combo!</h2>
+  <%= render "suggestion", restaurant: @restaurant, music: @music %> <%#this defines local variables inside partial %>
+<% end %>
+
+<h2>Top 20 Suggestions</h2>
+
+<% @top_faves.each do |suggestion_id| %>
+  <% suggestion = TunesTakeoutWrapper.find(suggestion_id) %>
+  <%= render "suggestion", restaurant: suggestion.restaurant, music: suggestion.music %>
 <% end %>

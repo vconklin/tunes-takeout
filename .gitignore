@@ -4,6 +4,9 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Ignore planning files
+/plan_for_displaying_top_20_faves.md
+
 # Ignore bundler config.
 /.bundle
 
