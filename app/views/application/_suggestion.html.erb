@@ -1,7 +1,9 @@
 <div class="pairing">
   <h2>You Should Try This Combo!</h2>
   <h3>Restaurant</h3>
-  <%= @restaurant.name %>
+  <%= link_to(@restaurant.name, @restaurant.url) %>
+  <%= image_tag @restaurant.image_url %>
+  <%= @restaurant.address.join('<br>').html_safe %>
   <p>Phone: <%= @restaurant.phone.chars.insert(3, "-").insert(7, "-").join %></p>
   <h3>Music</h3>
   <%= @music.type %>: <%= @music.name %>
