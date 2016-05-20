@@ -9,7 +9,7 @@ class SpotifyItem
     @type = data.type
     @name = data.name
     ## needs updating, documentation is outdated
-    # @url = data.url
+    @url = data.external_urls["spotify"]
     # because in Track, the image is nested inside of album
     @image = data.type == "track" ? data.album.images[0]["url"] : data.images[0]["url"]
   end

@@ -5,7 +5,8 @@
   <%= image_tag @restaurant.image_url %>
   <%= @restaurant.address.join('<br>').html_safe %>
   <p>Phone: <%= @restaurant.phone.chars.insert(3, "-").insert(7, "-").join %></p>
+
   <h3>Music</h3>
-  <%= @music.type %>: <%= @music.name %>
+  <%= @music.type %>: <%= link_to(@music.name, @music.url) %>
   <%= image_tag @music.image %>
 </div>
