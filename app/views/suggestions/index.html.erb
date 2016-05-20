@@ -1,20 +1,23 @@
-
-<% if current_user %>
-  <h2>Find A Suggestion</h2>
-  <%= form_tag(suggestions_path, method: :get) do %>
-    <%= text_field_tag :query %>
-    <%= submit_tag "Search" %>
+<div class="search">
+  <% if current_user %>
+    <h2>Find A Suggestion</h2>
+    <%= form_tag(suggestions_path, method: :get) do %>
+      <%= text_field_tag :query %>
+      <%= submit_tag "Search" %>
+    <% end %>
   <% end %>
-<% end %>
 
-<% if params[:query] %>
-  <h2>You Should Try This Combo!</h2>
-  <%= render "suggestion", restaurant: @restaurant, music: @music %> <%#this defines local variables inside partial %>
-<% end %>
+  <% if params[:query] %>
+    <h2>You Should Try This Combo!</h2>
+    <%= render "suggestion", restaurant: @restaurant, music: @music %> <%#this defines local variables inside partial %>
+  <% end %>
+</div>
 
-<h2>Top 20 Suggestions</h2>
+<div class="top-suggestions">
+  <h2>Top 20 Suggestions</h2>
 
-<% @top_faves.each do |suggestion_id| %>
-  <% suggestion = TunesTakeoutWrapper.find(suggestion_id) %>
-  <%= render "suggestion", restaurant: suggestion.restaurant, music: suggestion.music %>
-<% end %>
+  <% @top_faves.each do |suggestion_id| %>
+    <% suggestion = TunesTakeoutWrapper.find(suggestion_id) %>
+    <%= render "suggestion", restaurant: suggestion.restaurant, music: suggestion.music %>
+  <% end %>
+</div>
