@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'suggestions#index'
 
-  get "/suggestions/index" => "suggestions#index"
+  get "/suggestions" => "suggestions#index"
+
+  post "/suggestions" => "suggestions#favorite", as: "fave"
 
   get "/suggestions/favorites" => "suggestions#favorites", as: "faves"
 

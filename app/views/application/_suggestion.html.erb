@@ -10,4 +10,10 @@
   <h3>Music</h3>
   <%= music.type %>: <%= link_to(music.name, music.url) %>
   <%= image_tag music.image %>
+
+  <% if TunesTakeoutWrapper.user_favorites(current_user.uid).include? id %>
+    Faved
+  <% else %>
+  <%= link_to "Fave!", fave_path %>
+  <% end %>
 </div>

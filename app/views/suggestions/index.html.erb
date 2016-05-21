@@ -9,7 +9,7 @@
 
   <% if params[:query] %>
     <h2>You Should Try This Combo!</h2>
-    <%= render "suggestion", restaurant: @restaurant, music: @music %> <%#this defines local variables inside partial %>
+    <%= render "suggestion", restaurant: @restaurant, music: @music, suggestion: @suggestion %> <%#this defines local variables inside partial %>
   <% end %>
 </div>
 
@@ -18,6 +18,6 @@
 
   <% @top_faves.each do |suggestion_id| %>
     <% suggestion = TunesTakeoutWrapper.find(suggestion_id) %>
-    <%= render "suggestion", restaurant: suggestion.restaurant, music: suggestion.music %>
+    <%= render "suggestion", restaurant: suggestion.restaurant, music: suggestion.music, id: suggestion.id %>
   <% end %>
 </div>

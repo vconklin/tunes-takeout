@@ -12,7 +12,12 @@ class SuggestionsController < ApplicationController
     @top_faves = TunesTakeoutWrapper.top_favorites
   end
 
-  # def display_top_faves
-  #
-  # end
+  def favorite
+    # post to charles api
+    TunesTakeoutWrapper.fave(current_user.id)
+  end
+
+  def favorites
+    @favorites = TunesTakeoutWrapper.user_favorites(current_user.id)
+  end
 end
