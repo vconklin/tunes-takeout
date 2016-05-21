@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'suggestions#index'
 
-  resources :suggestions, only: [:index, :show]
+  get "/suggestions/index" => "suggestions#index"
+
+  get "/suggestions/favorites" => "suggestions#favorites", as: "faves"
 
   get "/auth/:provider/callback" => "sessions#create"
 
