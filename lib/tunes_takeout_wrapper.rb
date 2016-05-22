@@ -1,4 +1,5 @@
 require 'httparty'
+# require 'json'
 
 class TunesTakeoutWrapper
   BASE_URL = "https://tunes-takeout-api.herokuapp.com/v1/"
@@ -32,9 +33,13 @@ class TunesTakeoutWrapper
     HTTParty.get(BASE_URL + "users/#{id}/favorites").parsed_response["suggestions"]
   end
 
-  def self.fave(id)
-    HTTParty.post((BASE_URL + "users/#{id}/favorites"),
-    :body => { "suggestion": "suggestion-id" }).to_json
+  def self.fave(suggestion_id, user_id)
+    # so it has the little quotes around it for proper json conversion
+    # suggestion_id = "\"#{id}\""
+    response = HTTParty.post(BASE_URL + "users/#{user_id}/favorites",
+                            :body => { "suggestion": suggestion_id }.to_json,
+                             :options => { :headers => {'Content-Type' => 'application/json'} })
+    return response.code
   end
 
   def restaurant

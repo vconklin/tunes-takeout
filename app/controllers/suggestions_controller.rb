@@ -10,14 +10,16 @@ class SuggestionsController < ApplicationController
     end
 
     @top_faves = TunesTakeoutWrapper.top_favorites
+    @your_favorites = TunesTakeoutWrapper.user_favorites(current_user.uid)
   end
 
   def favorite
     # post to charles api
-    TunesTakeoutWrapper.fave(current_user.id)
+    @favorite = TunesTakeoutWrapper.fave(params[:suggestion_id], current_user.uid)
+    redirect_to root_path
   end
 
   def favorites
-    @favorites = TunesTakeoutWrapper.user_favorites(current_user.id)
+    @favorites = TunesTakeoutWrapper.user_favorites(current_user.uid)
   end
 end

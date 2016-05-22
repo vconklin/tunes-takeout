@@ -11,9 +11,9 @@
   <%= music.type %>: <%= link_to(music.name, music.url) %>
   <%= image_tag music.image %>
 
-  <% if TunesTakeoutWrapper.user_favorites(current_user.uid).include? id %>
+  <% if @your_favorites.include? suggestion_id %>
     Faved
   <% else %>
-  <%= link_to "Fave!", fave_path %>
+    <%= link_to "Fave!", fave_path(suggestion_id: suggestion_id), method: :post %>
   <% end %>
 </div>
