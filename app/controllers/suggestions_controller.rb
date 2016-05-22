@@ -20,6 +20,6 @@ class SuggestionsController < ApplicationController
   end
 
   def favorites
-    @favorites = TunesTakeoutWrapper.user_favorites(current_user.uid)
+    @your_favorites = TunesTakeoutWrapper.user_favorites(current_user.uid)
   end
 end

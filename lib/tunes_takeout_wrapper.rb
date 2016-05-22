@@ -28,9 +28,9 @@ class TunesTakeoutWrapper
     HTTParty.get(BASE_URL + "suggestions/top?limit=20").parsed_response["suggestions"]
   end
 
-  def self.user_favorites(id)
+  def self.user_favorites(user_id)
     # returns an array
-    HTTParty.get(BASE_URL + "users/#{id}/favorites").parsed_response["suggestions"]
+    HTTParty.get(BASE_URL + "users/#{user_id}/favorites").parsed_response["suggestions"]
   end
 
   def self.fave(suggestion_id, user_id)

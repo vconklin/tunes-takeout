@@ -1,6 +1,6 @@
 <h2>Your Favorite Suggestions</h2>
 
-<% @favorites.each do |suggestion_id| %>
+<% @your_favorites.each do |suggestion_id| %>
   <% suggestion = TunesTakeoutWrapper.find(suggestion_id) %>
-  <%= render "suggestion", restaurant: suggestion.restaurant, music: suggestion.music, suggestion_id: suggestion.id %>
+  <%= render "suggestion", restaurant: suggestion.restaurant, music: suggestion.music, suggestion_id: suggestion_id %>
 <% end %>
