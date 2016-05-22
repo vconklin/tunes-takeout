@@ -1,19 +1,25 @@
 <div class="pairing">
-  <h3>Restaurant</h3>
-  <%= link_to(restaurant.name, restaurant.url) %>
-  <%= image_tag restaurant.image_url %>
-  <%= restaurant.address.join('<br>').html_safe %>
-  <% if restaurant.phone %>
-  <p>Phone: <%= restaurant.phone.chars.insert(3, "-").insert(7, "-").join %></p>
-  <% end %>
+  <div class="restaurant">
+    <h3>Restaurant</h3>
+    <%= link_to(restaurant.name, restaurant.url) %>
+    <%= image_tag restaurant.image_url %>
+    <%= restaurant.address.join('<br>').html_safe %>
+    <% if restaurant.phone %>
+    <p>Phone: <%= restaurant.phone.chars.insert(3, "-").insert(7, "-").join %></p>
+    <% end %>
+  </div>
 
-  <h3>Music</h3>
-  <%= music.type %>: <%= link_to(music.name, music.url) %>
-  <%= image_tag music.image %>
+  <div class="music">
+    <h3>Music</h3>
+    <%= music.type %>: <%= link_to(music.name, music.url) %>
+    <%= image_tag music.image %>
 
-  <% if @your_favorites.include? suggestion_id %>
-    Faved
-  <% else %>
-    <%= link_to "Fave!", fave_path(suggestion_id: suggestion_id), method: :post %>
-  <% end %>
+    <% if current_user %>
+      <% if @your_favorites.include? suggestion_id %>
+        Faved
+      <% else %>
+        <%= link_to "Fave!", fave_path(suggestion_id: suggestion_id), method: :post %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

@@ -51,7 +51,17 @@ footer {
   width: 10rem;
 }
 
+/*** SUGGESTIONS ***/
+.pairing {
+  display: block;
+  clear: both;
+}
 
+.restaurant, .music {
+  display: inline-block;
+  float: left;
+  margin: 3rem;
+}
 
 
 

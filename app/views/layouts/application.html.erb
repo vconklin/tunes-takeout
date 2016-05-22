@@ -13,9 +13,11 @@
   <h1>Tunes & Takeout</h1>
 </header>
 
-<nav>
-  <%= link_to "Favorites", faves_path %>
-</nav>
+<% if current_user %>
+  <nav>
+    <%= link_to "Favorites", faves_path %>
+  </nav>
+<% end %>
 
 <div class="greeting">
   <% if session[:user_id] %>
