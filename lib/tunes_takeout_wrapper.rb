@@ -42,6 +42,14 @@ class TunesTakeoutWrapper
     return response.code
   end
 
+  def self.unfave(suggestion_id, user_id)
+    response = HTTParty.delete(BASE_URL + "users/#{user_id}/favorites",
+                            :body => { "suggestion": suggestion_id }.to_json,
+                             :options => { :headers => {'Content-Type' => 'application/json'} })
+
+    return response.code
+  end
+
   def restaurant
     Restaurant.find(food_id)
   end

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   post "/suggestions" => "suggestions#favorite", as: "fave"
 
+  delete "/suggestions" => "suggestions#unfavorite", as: "unfave"
+
   get "/suggestions/favorites" => "suggestions#favorites", as: "faves"
 
   get "/auth/:provider/callback" => "sessions#create"

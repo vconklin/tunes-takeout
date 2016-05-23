@@ -16,7 +16,8 @@
 
     <% if current_user %>
       <% if @your_favorites.include? suggestion_id %>
-        Faved
+        Faved<br>
+        <%= link_to "Unfave?", unfave_path(suggestion_id: suggestion_id), method: :delete %>
       <% else %>
         <%= link_to "Fave!", fave_path(suggestion_id: suggestion_id), method: :post %>
       <% end %>
