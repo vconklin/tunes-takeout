@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'TunesTakeoutWrapper'
+require 'tunes_takeout_wrapper'
 
 class TunesTakeoutWrapperTest < ActiveSupport::TestCase
   describe TunesTakeoutWrapper do
