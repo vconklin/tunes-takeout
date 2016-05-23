@@ -4,12 +4,18 @@ html {
   font-size: 16px;
 }
 
+img.spotify-logo {
+  width: 10%;
+  float: right;
+}
+
 .greeting {
   border: 0.25rem solid black;
   width: 10%;
   display: flex;
   float: right;
-  margin: 1rem;
+  clear: right;
+  margin: 0 1rem;
 }
 
 .greeting img {

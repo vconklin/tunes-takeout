@@ -19,6 +19,9 @@
   </nav>
 <% end %>
 
+
+<%= image_tag "fullspotifylogo.jpg", class: "spotify-logo" %>
+
 <div class="greeting">
   <% if session[:user_id] %>
     <%= link_to current_user.name, current_user.profile %>
